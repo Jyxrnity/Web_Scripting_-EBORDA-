@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Registration & Login</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <!-- Form Toggle Buttons -->
+            <div class="form-toggle">
+                <button type="button" class="toggle-btn active" onclick="showForm('register')">Register</button>
+                <button type="button" class="toggle-btn" onclick="showForm('login')">Login</button>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form-card" id="registerForm">
+                <div class="card-header">
+                    <div class="logo">
+                        <div class="logo-icon"></div>
+                    </div>
+                    <h1>Join Our Community</h1>
+                    <p>Create your account and start your journey with us</p>
+                </div>
+
+                <form class="registration-form" action="register.php" method="POST" onsubmit="return validateRegistration()">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="fullName" name="fullName" required>
+                            <label for="fullName">Full Name</label>
+                            <span class="input-border"></span>
+                        </div>
+                        <span class="error-message" id="fullNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                            <span class="input-border"></span>
+                        </div>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="username" name="username" required>
+                            <label for="username">Username</label>
+                            <span class="input-border"></span>
+                        </div>
+                        <span class="error-message" id="usernameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" required>
+                            <label for="password">Password</label>
+                            <span class="input-border"></span>
+                            <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                <span class="eye-icon">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <label for="confirmPassword">Confirm Password</label>
+                            <span class="input-border"></span>
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                <span class="eye-icon">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+
+                    <!-- Gender Selection -->
+                    <div class="form-group">
+                        <label class="section-label">Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-container">
+                                <input type="radio" name="gender" value="male" required>
+                                <span class="radio-mark"></span>
+                                <span class="radio-text">Male</span>
+                            </label>
+                            <label class="radio-container">
+                                <input type="radio" name="gender" value="female" required>
+                                <span class="radio-mark"></span>
+                                <span class="radio-text">Female</span>
+                            </label>
+                            <label class="radio-container">
+                                <input type="radio" name="gender" value="other" required>
+                                <span class="radio-mark"></span>
+                                <span class="radio-text">Other</span>
+                            </label>
+                        </div>
+                        <span class="error-message" id="genderError"></span>
+                    </div>
+
+                    <!-- Hobbies Selection -->
+                    <div class="form-group">
+                        <label class="section-label">Hobbies</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="hobbies[]" value="reading">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Reading</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="hobbies[]" value="sports">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Sports</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="hobbies[]" value="music">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Music</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="hobbies[]" value="travel">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Travel</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="hobbies[]" value="cooking">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Cooking</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="hobbies[]" value="gaming">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Gaming</span>
+                            </label>
+                        </div>
+                        <span class="error-message" id="hobbiesError"></span>
+                    </div>
+
+                    <!-- Country Selection -->
+                    <div class="form-group">
+                        <div class="select-group">
+                            <select id="country" name="country" required>
+                                <option value=""></option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="ca">Canada</option>
+                                <option value="au">Australia</option>
+                                <option value="de">Germany</option>
+                                <option value="fr">France</option>
+                                <option value="jp">Japan</option>
+                                <option value="kr">South Korea</option>
+                                <option value="cn">China</option>
+                                <option value="in">India</option>
+                                <option value="ph">Philippines</option>
+                                <option value="sg">Singapore</option>
+                                <option value="my">Malaysia</option>
+                                <option value="th">Thailand</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="country">Country</label>
+                            <span class="select-arrow">▼</span>
+                        </div>
+                        <span class="error-message" id="countryError"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Create Account</span>
+                        <div class="btn-loader"></div>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-card hidden" id="loginForm">
+                <div class="card-header">
+                    <div class="logo">
+                        <div class="logo-icon"></div>
+                    </div>
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your account to continue</p>
+                </div>
+
+                <form class="login-form" action="login.php" method="POST" onsubmit="return validateLogin()">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="loginUsername" name="username" required>
+                            <label for="loginUsername">Username</label>
+                            <span class="input-border"></span>
+                        </div>
+                        <span class="error-message" id="loginUsernameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="password" id="loginPassword" name="password" required>
+                            <label for="loginPassword">Password</label>
+                            <span class="input-border"></span>
+                            <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                                <span class="eye-icon">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="loginPasswordError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="remember" value="1">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Remember me</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Sign In</span>
+                        <div class="btn-loader"></div>
+                    </button>
+                </form>
+
+                <div class="card-footer">
+                    <p><a href="#" class="forgot-link">Forgot your password?</a></p>
+                </div>
+            </div>
+
+            <!-- Success/Error Messages -->
+            <div class="message-container" id="messageContainer" style="display: none;">
+                <div class="message" id="message"></div>
+            </div>
+        </div>
+    </div>
+        <script src="indexes.js"></script>
+</body>
+</html>

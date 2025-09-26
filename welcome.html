@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Dashboard</title>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">Welcome</span>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="welcome-text">Welcome back, <span id="userName">User</span>!</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Card -->
+            <div class="welcome-card">
+                <div class="welcome-header">
+                    <h1>Welcome to Your Dashboard</h1>
+                    <p>We're excited to have you here. Explore your personalized experience.</p>
+                </div>
+                
+                <div class="user-profile">
+                    <div class="profile-avatar">
+                        <span id="userInitials">U</span>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="displayName">User Name</h2>
+                        <p class="user-email" id="userEmail">user@example.com</p>
+                        <div class="user-details">
+                            <span class="detail-item">
+                                <strong>Country:</strong> <span id="userCountry">Not specified</span>
+                            </span>
+                            <span class="detail-item">
+                                <strong>Gender:</strong> <span id="userGender">Not specified</span>
+                            </span>
+                        </div>
+                        <div class="user-hobbies" id="userHobbies">
+                            <strong>Hobbies:</strong>
+                            <div class="hobbies-list" id="hobbiesList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon">📊</div>
+                        <h4>View Analytics</h4>
+                        <p>Check your activity and statistics</p>
+                        <button class="action-btn">View</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">⚙️</div>
+                        <h4>Settings</h4>
+                        <p>Manage your account preferences</p>
+                        <button class="action-btn">Configure</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">👥</div>
+                        <h4>Community</h4>
+                        <p>Connect with other members</p>
+                        <button class="action-btn">Explore</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">📚</div>
+                        <h4>Resources</h4>
+                        <p>Access guides and tutorials</p>
+                        <button class="action-btn">Learn</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">✅</div>
+                        <div class="activity-content">
+                            <h4>Account Created</h4>
+                            <p>You successfully joined our community</p>
+                            <span class="activity-time" id="joinDate">Just now</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">🎉</div>
+                        <div class="activity-content">
+                            <h4>Welcome Bonus</h4>
+                            <p>You've earned your first achievement</p>
+                            <span class="activity-time">Today</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Your Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Support</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="welcome.js"></script>
+</body>
+</html>
